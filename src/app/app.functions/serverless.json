@@ -1,7 +1,7 @@
 {
   "appFunctions": {
-    "myFunc": {
-      "file": "example-function.js",
+    "getRandomWord": {
+      "file": "getRandomWord.js",
       "secrets": []
     }
   }

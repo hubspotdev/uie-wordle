@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect} from "react";
 import {
   Alert,
   Box,
@@ -35,7 +35,7 @@ const GuessRow = ({ guess, targetWord }) => {
           <Alert
             key={index}
             variant={status}
-            title={${letter.toUpperCase()}}
+            title={letter.toUpperCase()}
           >
           </Alert>
         );
@@ -49,14 +49,22 @@ const Extension = ({ context, runServerless, sendAlert }) => {
 
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState<string[]>([]);
-  const [targetWord] = useState("REACT");
+  const [targetWord, setTargetWord] = useState("REACT");
   const [isGameOver, setIsGameOver] = useState(false);
   const gameEnded = isGameOver || guesses.length >= 5;
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Add useEffect to fetch word on component mount
+  useEffect(() => {
+    fetchNewWord();
+  }, []);
+
 
   const resetGame = () => {
     setGuesses([]);
     setCurrentGuess("");
     setIsGameOver(false);
+    fetchNewWord();
   };
 
   const handleSubmitGuess = () => {
@@ -76,6 +84,25 @@ const Extension = ({ context, runServerless, sendAlert }) => {
     if (upperGuess === targetWord) {
       sendAlert({ message: "Congratulations! You've won! 🎉", type: "success" });
       setIsGameOver(true);
+    }
+  };
+
+  const fetchNewWord = async () => {
+    try {
+      setIsLoading(true);
+      const response = await runServerless({
+        name: 'getRandomWord'
+      });
+      console.log(`👀 Are you peeking? Ok, well the word is ${response.response.body.word}!`);
+      setTargetWord(response.response.body.word);
+    } catch (error) {
+      console.error('Error:', error);
+      sendAlert({
+        message: "Failed to fetch new word.",
+        type: "error"
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
