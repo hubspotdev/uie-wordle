@@ -1,7 +1,7 @@
 {
-  "name": "Get started App",
-  "description": "This is an example private app that shows a custom card on the Contact record tab built with React-based frontend. This card demonstrates a simple handshake with HubSpot's serverless backend.",
-  "uid": "get_started_app",
+  "name": "Wordle Clone by the HubSpot Developer Relations Team",
+  "description": "This is a clone of the popular word game Wordle. It's a simple app that allows you to play Wordle in HubSpot. HubSpot does not own the rights to the Wordle name, trademarks, or game.",
+  "uid": "wordle",
   "scopes": ["crm.objects.contacts.read", "crm.objects.contacts.write"],
   "public": false,
   "extensions": {
