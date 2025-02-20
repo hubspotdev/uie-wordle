@@ -1,3 +1,12 @@
+/**
+ * Game instructions component for the Wordle clone.
+ *
+ * Displays the rules and examples of how the game works, including:
+ * - Basic game rules
+ * - Visual example of letter colors and their meanings
+ * - Explanation of the color-coding system
+ */
+
 import React from "react";
 import { Text, List, Image } from "@hubspot/ui-extensions";
 import wordleExample from '../assets/wordle-example.png';

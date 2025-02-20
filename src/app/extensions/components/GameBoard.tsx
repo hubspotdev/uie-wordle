@@ -1,7 +1,16 @@
+/**
+ * Main game logic component for the Wordle clone.
+ *
+ * Handles core game functionality including:
+ * - Managing game state (guesses, current word, game status)
+ * - Processing user input and guess validation
+ * - Fetching random words from the serverless backend
+ * - Displaying game UI and coordinating with GuessRow components
+ */
+
 import React, { useState, useEffect } from "react";
 import { Box, Button, Flex, Input } from "@hubspot/ui-extensions";
 import { GuessRow } from "./GuessRow";
-
 
 export const GameBoard = ({ runServerless, sendAlert }) => {
   const [currentGuess, setCurrentGuess] = useState("");
@@ -29,7 +38,7 @@ export const GameBoard = ({ runServerless, sendAlert }) => {
       return;
     }
     if (guesses.length >= 5) {
-      sendAlert({ message: "Game over! You've used all 5 guesses.", type: "error" });
+      sendAlert({ message: "Game over! You've used all 5 guesses.", type: "danger" });
       return;
     }
 
@@ -43,6 +52,7 @@ export const GameBoard = ({ runServerless, sendAlert }) => {
     }
   };
 
+  // Fetches a new random word from the serverless backend
   const fetchNewWord = async () => {
     try {
       setIsLoading(true);
@@ -64,6 +74,7 @@ export const GameBoard = ({ runServerless, sendAlert }) => {
 
   return (
     <>
+      {/* Input and control buttons section */}
       <Flex direction="row" justify="between" align="end" gap="md" >
         <Box flex={4}>
           <Input
@@ -89,6 +100,7 @@ export const GameBoard = ({ runServerless, sendAlert }) => {
         </Box>
       </Flex>
 
+      {/* Game board display showing previous guesses */}
       <Flex direction="column" gap="md">
         {guesses.map((guess, index) => (
           <GuessRow key={index} guess={guess} targetWord={targetWord} />

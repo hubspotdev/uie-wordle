@@ -1,6 +1,14 @@
+/**
+ * GuessRow component for displaying a single word guess in the Wordle game.
+ *
+ * Renders a row of letters with color-coded alerts to indicate:
+ * - Green (success): Letter is correct and in the right position
+ * - Yellow (warning): Letter exists in the word but in wrong position
+ * - White (tip): Letter is not in the word
+ */
+
 import React from "react";
 import { Alert, Flex } from "@hubspot/ui-extensions";
-
 
 export const GuessRow = ({ guess, targetWord }) => {
   return (
