@@ -64,11 +64,15 @@ When making changes to configuration files ({CARD\_NAME}-card.json and app.json)
 
 This card is configured to be viewed on Contact records. To view the card for development, navigate to any Contact record and select `Customize record`. Select the view you'd like to update from the table and choose `Add cards`.
 
+<img width="1453" alt="Screenshot 2025-02-20 at 11 17 13 AM" src="https://github.com/user-attachments/assets/039b54a1-6b76-41ea-a452-cc3585c6f1ae" />
+
 ### Using the Wordle Card
 
 This app card allows users to play the [Wordle game](https://www.nytimes.com/games/wordle/index.html), as popularized by the [New York Times Games](https://www.nytimes.com/games). Guess a mystery word within five guesses to win the same. After each guess, each character in your word will be highlighted to indicate how close you are to guessing the word.
 
 If the letter is highlighted in green, the letter is in the word and is in the correct spot. If the letter is highlighted in yellow, the letter is in the word but in the wrong spot. If the letter is not highlighted, the letter is not in the word.
+
+https://github.com/user-attachments/assets/109827c8-bf7b-43d8-b27e-45cbee02c25e
 
 ## Learn More About App Cards Powered by UI Extensions
 
